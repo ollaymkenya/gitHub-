@@ -16,7 +16,15 @@ export class ProfileService {
     this.user = 'ollaymkenya';
   }
 
+getProfileUser() {
+  return this.http.get('https://api.github.com/users/' + this.user + '?client_id=' + this.clientid + "&client_secret=" + this.clientSecret)
+    .map(res => res.json());
+}
 
+getProfileRepo() {
+  return this.http.get('https://api.github.com/users/' + this.user + '/repos?client_id=' + this.clientid + "&client_secret=" + this.clientSecret)
+    .map(res => res.json());
+}
 
 updateProfile(user: string) {
   this.user = user;
