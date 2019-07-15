@@ -4,6 +4,5 @@ export class User {
     avatar_url: string;
     followers: number;
     following: number;
-    html_url: string;
-    public_repos: number;
+    
 }
