@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="align">
+        <h1>GitSearch App</h1>
+        <p>Search your repository in Github from here</p>
+        <hr>
+    </div>
+    <div class="col-md-12">
+        <form action="">
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Search Repos</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-lg" (keyup)='getProfile() ' [(ngModel)]="user" name="user">
+            </div>
+        </form>
+    </div>
+    <div *ngIf="profile">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title">Name:{{profile.name}}</h5>
+                    <h5 class="card-text">No. of Repos:{{profile.public_repos}} repos</h5>
+                    <img src="{{profile.avatar_url}}" alt="" style="width: 100%;">
+                    <h4><span class="badge badge-primary">Followers:{{profile.followers}}</span></h4>
+                    <h4><span class="badge badge-primary">Following:{{profile.following}}</span></h4>
+                    <a href="{{profile.html_url}}" target="_blank"><button class="btn btn-primary">View on
+                            GitHub</button></a>
+                </div>
+            </div>
+            <div class="col-md-8 card-body">
+                <h5>Public Repositories</h5>
+                <div *ngFor="let repor of repos">
+                    <h5 class="card-title">{{repor.name}}</h5>
+                    <p class="card-text">{{repor.description}}</p>
+                    <a href="{{repor.html_url}}" target="_blank" class="btn btn-primary">View in github</a>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
