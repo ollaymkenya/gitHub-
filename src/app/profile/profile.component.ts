@@ -32,6 +32,14 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    
+    interface ApiResponse {
+      name: string;
+      login: string;
+      avatar_url: string;
+      followers_url: number;
+      following_url: number;
+      public_repos: number;
+    }
+  }
 
 }
